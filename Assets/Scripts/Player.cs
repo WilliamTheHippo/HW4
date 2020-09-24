@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
 	public float moveSpeed;
 	public float jumpSpeed;
+	public bool onGround;
 
 	Rigidbody2D rb;
 	float horizontal;
@@ -21,10 +22,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         horizontal = Input.GetAxis("Horizontal");
-        if(Input.GetButtonDown("Jump"))
-        {
-        	jumping = true;
-        }
+        if(Input.GetButtonDown("Jump") && onGround) jumping = true;
     }
 
     void FixedUpdate()

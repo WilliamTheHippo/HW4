@@ -4,5 +4,15 @@ using UnityEngine;
 
 public class Grounded : MonoBehaviour
 {
-	void OnTriggerStay2D()
+	public Player player;
+
+	void OnTriggerStay2D(Collider2D c)
+	{
+		player.onGround = true;
+	}
+
+	void OnTriggerExit2D(Collider2D c)
+	{
+		player.onGround = false;
+	}
 }
