@@ -8,11 +8,11 @@ public class GroundCollider : MonoBehaviour
 
 	void OnTriggerStay2D(Collider2D c)
 	{
-		if(c.tag == "Platform" || c.tag == "BouncyThing")
+		if(c.tag == "Platform" || c.tag == "JumpyThing")
 		{
 			player.onGround = true;
-			player.canMoveInAir = true;
 		}
+		if(c.tag == "Platform") player.canMoveInAir = true;
 		if(c.tag == "Debuff") player.canMoveInAir = false;
 		if(c.tag == "Bouncy") player.Bounce();
 		if(c.tag == "DebuffAndBouncy")
@@ -20,11 +20,7 @@ public class GroundCollider : MonoBehaviour
 			player.Bounce();
 			player.canMoveInAir = false;
 		}
-		if(c.tag == "Enemy")
-		{
-			//play sound?
-			Debug.Log("not implemented yet");
-		}
+		//if(c.tag == "Enemy") player.Reset();
 		if(c.tag == "Untagged") Debug.LogWarning("Untagged element!", c);
 	}
 
