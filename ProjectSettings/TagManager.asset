@@ -8,6 +8,8 @@ TagManager:
   - Platform
   - Bouncy
   - DebuffAndBouncy
+  - Enemy
+  - JumpyThing
   layers:
   - Default
   - TransparentFX

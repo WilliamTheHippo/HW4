@@ -8,7 +8,7 @@ public class GroundCollider : MonoBehaviour
 
 	void OnTriggerStay2D(Collider2D c)
 	{
-		if(c.tag == "Platform")
+		if(c.tag == "Platform" || c.tag == "BouncyThing")
 		{
 			player.onGround = true;
 			player.canMoveInAir = true;
@@ -19,6 +19,11 @@ public class GroundCollider : MonoBehaviour
 		{
 			player.Bounce();
 			player.canMoveInAir = false;
+		}
+		if(c.tag == "Enemy")
+		{
+			//play sound?
+			Debug.Log("not implemented yet");
 		}
 		if(c.tag == "Untagged") Debug.LogWarning("Untagged element!", c);
 	}

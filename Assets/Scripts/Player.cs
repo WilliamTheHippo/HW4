@@ -54,11 +54,16 @@ public class Player : MonoBehaviour
 
     public void Bounce()
     {
+    	//play sound?
     	//Debug.Log(lastYVelocity);
     	if(Mathf.Abs(lastYVelocity) > bounceThreshold)
     	{
     		bounceVelocity = -lastYVelocity;
     		bouncing = true;
+    	}
+    	else
+    	{
+    		jumping = true;
     	}
     }
 }
