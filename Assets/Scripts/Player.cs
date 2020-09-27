@@ -11,6 +11,11 @@ public class Player : MonoBehaviour
 	[Tooltip("Physics engine hackiness; higher value stops bouncing sooner to reduce jitter.")]
 	public float bounceThreshold;
 
+	public AudioClip beep;
+	public AudioClip boing;
+
+	AudioSource sound;
+
 	Rigidbody2D rb;
 	float horizontal;
 	bool jumping;
@@ -21,6 +26,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        sound = GetComponent<AudioSource>();
         horizontal = 0f;
         jumping = false;
         canMoveInAir = true;
@@ -30,7 +36,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         horizontal = Input.GetAxis("Horizontal");
-        if(Input.GetButtonDown("Jump") && onGround) jumping = true;
+        if(Input.GetButton("Jump") && onGround) jumping = true;
     }
 
     void FixedUpdate()
@@ -54,7 +60,8 @@ public class Player : MonoBehaviour
 
     public void Bounce()
     {
-    	//play sound?
+    	sound.clip = boing;
+    	sound.Play();
     	//Debug.Log(lastYVelocity);
     	if(Mathf.Abs(lastYVelocity) > bounceThreshold)
     	{
@@ -65,5 +72,15 @@ public class Player : MonoBehaviour
     	{
     		jumping = true;
     	}
+    }
+
+    void OnTriggerEnter2D(Collider2D c)
+    {
+    	if(c.tag == "Enemy")
+    	{
+	    	sound.clip = beep;
+	    	sound.Play();
+	    	transform.position = new Vector3(0f,0f,0f);
+	    }
     }
 }
