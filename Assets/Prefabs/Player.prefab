@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6546076810586626870}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -137,6 +137,8 @@ MonoBehaviour:
   moveSpeed: 10
   jumpSpeed: 20
   onGround: 0
+  canMoveInAir: 1
+  bounceThreshold: 7
 --- !u!1 &6546076811619152065
 GameObject:
   m_ObjectHideFlags: 0
@@ -149,7 +151,7 @@ GameObject:
   - component: {fileID: 6546076811619152067}
   - component: {fileID: 6546076811619152068}
   m_Layer: 0
-  m_Name: Grounded
+  m_Name: GroundCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
