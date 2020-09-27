@@ -20,6 +20,7 @@ public class Spawner : MonoBehaviour
 			if(direction == Direction.Up) spawned.velocity = new Vector2(0, speed);
 			if(direction == Direction.Down) spawned.velocity = new Vector2(0, -speed);
 			if(direction == Direction.Left) spawned.velocity = new Vector2 (-speed, 0);
-			if(direction == Direction.Right) spawned.velocity = new Vector2(speed, 0);    	}
+			if(direction == Direction.Right) spawned.velocity = new Vector2(speed, 0);
+		}
     }
 }

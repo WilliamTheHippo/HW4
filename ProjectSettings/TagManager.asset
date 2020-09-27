@@ -10,6 +10,7 @@ TagManager:
   - DebuffAndBouncy
   - Enemy
   - JumpyThing
+  - CameraCollider
   layers:
   - Default
   - TransparentFX
