@@ -9,12 +9,21 @@ public class Spawner : MonoBehaviour
     public Direction direction;
     public int speed;
     [Tooltip("Time between spawns in seconds.")]
-    public int interval;
+    public float interval;
+
+    float timer;
+
+    void Start()
+    {
+    	timer = interval;
+    }
 
     void Update()
     {
-    	if(Input.GetButtonDown("Fire1")) //left-ctrl
+    	timer -= Time.deltaTime;
+    	if(timer <= 0)
     	{
+    		timer = interval;
     		Rigidbody2D spawned =
     			Instantiate(spawn, transform.position, Quaternion.identity);
 			if(direction == Direction.Up) spawned.velocity = new Vector2(0, speed);
