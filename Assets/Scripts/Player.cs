@@ -7,10 +7,14 @@ public class Player : MonoBehaviour
 	[Header("Physics")]
 	public float moveSpeed;
 	public float jumpSpeed;
+	public float superJumpSpeed;
 	public bool onGround;
 	public bool canMoveInAir;
 	[Tooltip("Physics engine hackiness; higher value stops bouncing sooner to reduce jitter.")]
 	public float bounceThreshold;
+	[Tooltip("Maximum charge level for powerup jump.")]
+	public float maxCharge;
+	public float chargeSpeed;
 
 	[Header("Sounds")]
 	[Tooltip("Plays on death")]
@@ -21,29 +25,41 @@ public class Player : MonoBehaviour
 	public AudioClip ping;
 
 	[Header("Sprites")]
+	public Sprite defaultSprite;
 	public Sprite poweredUpSprite;
 
 	SpriteRenderer sr;
 	AudioSource sound;
 	Rigidbody2D rb;
+	CircleCollider2D cc;
 	
 	float horizontal;
 	bool jumping;
+	bool superJumping;
 	bool bouncing;
 	bool poweredUp;
 	float lastYVelocity;
 	float bounceVelocity;
+
+	bool chargingJump;
+	float chargeLevel;
+
+	float radius;
 
     void Start()
     {
     	sr = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         sound = GetComponent<AudioSource>();
+        cc = GetComponent<CircleCollider2D>();
         horizontal = 0f;
         jumping = false;
         canMoveInAir = true;
         bouncing = false;
         poweredUp = false;
+        chargingJump = false;
+        chargeLevel = 0;
+        radius = cc.radius;
     }
 
     void Update()
@@ -54,8 +70,23 @@ public class Player : MonoBehaviour
         	if(!poweredUp) jumping = true;
         	else
         	{
-        		//
+        		chargingJump = true;
+        		if(chargeLevel < maxCharge) chargeLevel += chargeSpeed * Time.deltaTime;
+        		float shrink = chargeLevel * 0.03f; //yeah, I know, magic number...
+        		transform.localScale = new Vector3(1, 1-shrink, 1);
+        		cc.radius = radius * (1-shrink);
         	}
+        }
+        if(Input.GetButtonUp("Jump") && chargingJump)
+        {
+        	sound.clip = boing;
+        	sound.Play();
+        	sr.sprite = defaultSprite;
+        	chargingJump = false;
+        	poweredUp = false;
+        	superJumping = true;
+        	transform.localScale = new Vector3(1,1,1);
+        	cc.radius = radius;
         }
     }
 
@@ -75,6 +106,12 @@ public class Player : MonoBehaviour
     	{
     		rb.velocity = new Vector2(rb.velocity.x, bounceVelocity);
     		bouncing = false;
+    	}
+    	if(superJumping)
+    	{
+    		rb.velocity = new Vector2(rb.velocity.x, superJumpSpeed * chargeLevel);
+    		superJumping = false;
+    		chargeLevel = 0;
     	}
     }
 
@@ -107,6 +144,7 @@ public class Player : MonoBehaviour
 	    {
 	    	Destroy(c.gameObject);
 	    	sound.clip = ping;
+	    	sound.Play();
 	    	sr.sprite = poweredUpSprite;
 	    	poweredUp = true;
 	    }

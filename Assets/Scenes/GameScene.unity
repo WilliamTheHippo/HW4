@@ -402,6 +402,21 @@ PrefabInstance:
       propertyPath: bounceThreshold
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 6546076810586626870, guid: f10ff9e4620c54bb8997418f74209145,
+        type: 3}
+      propertyPath: superJumpSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6546076810586626870, guid: f10ff9e4620c54bb8997418f74209145,
+        type: 3}
+      propertyPath: chargeSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6546076810586626870, guid: f10ff9e4620c54bb8997418f74209145,
+        type: 3}
+      propertyPath: maxCharge
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6546076811619152065, guid: f10ff9e4620c54bb8997418f74209145,
         type: 3}
       propertyPath: m_Icon
@@ -455,7 +470,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 4.25}
+  m_Offset: {x: 0, y: 8}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -466,7 +481,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 17.77777, y: 1.5}
+  m_Size: {x: 17.77777, y: 10}
   m_EdgeRadius: 0
 --- !u!61 &1170538025
 BoxCollider2D:
@@ -481,7 +496,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -4.25}
+  m_Offset: {x: 0, y: -8}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -492,7 +507,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 17.77777, y: 1.5}
+  m_Size: {x: 17.77777, y: 10}
   m_EdgeRadius: 0
 --- !u!114 &1170538026
 MonoBehaviour:
