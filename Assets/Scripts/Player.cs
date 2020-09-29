@@ -145,9 +145,9 @@ public class Player : MonoBehaviour
 	    }
 	    if(c.tag == "JumpyThing")
 	    {
-	    	Destroy(c.gameObject);
+	    	Destroy(c.gameObject, .05f);
 	    	sound.clip = blip;
-	    	sound.Play();
+	    	if(!sound.isPlaying) sound.Play();
 	    }
 	    if(c.tag == "PowerUp")
 	    {
