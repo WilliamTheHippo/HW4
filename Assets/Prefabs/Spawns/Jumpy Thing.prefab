@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1002374510395913377}
   - component: {fileID: 3813670610874739998}
   - component: {fileID: 4289460543986935550}
+  - component: {fileID: 1112750348608178526}
   m_Layer: 0
   m_Name: Jumpy Thing
   m_TagString: JumpyThing
@@ -137,3 +138,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1112750348608178526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1002374510395913382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53990a26f14f147b3bd93eb88299fe1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 2

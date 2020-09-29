@@ -26,10 +26,10 @@ public class Spawner : MonoBehaviour
     		timer = interval;
     		Rigidbody2D spawned =
     			Instantiate(spawn, transform.position, Quaternion.identity);
-			if(direction == Direction.Up) spawned.velocity = new Vector2(0, speed);
-			if(direction == Direction.Down) spawned.velocity = new Vector2(0, -speed);
-			if(direction == Direction.Left) spawned.velocity = new Vector2 (-speed, 0);
-			if(direction == Direction.Right) spawned.velocity = new Vector2(speed, 0);
+			if(direction == Direction.Up) spawned.velocity = transform.up * speed;//new Vector2(0, speed);
+			if(direction == Direction.Down) spawned.velocity = -transform.up * speed;//new Vector2(0, -speed);
+			if(direction == Direction.Left) spawned.velocity = -transform.right * speed;//new Vector2 (-speed, 0);
+			if(direction == Direction.Right) spawned.velocity = transform.right * speed;//new Vector2(speed, 0);
 		}
     }
 }

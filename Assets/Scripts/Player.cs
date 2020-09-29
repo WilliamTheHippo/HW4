@@ -135,10 +135,11 @@ public class Player : MonoBehaviour
     {
     	if(c.tag == "Enemy")
     	{
-    		Destroy(c.gameObject);
+    		//Destroy(c.gameObject);
 	    	sound.clip = beep;
 	    	sound.Play();
 	    	transform.position = new Vector3(0f,0f,0f);
+	    	Camera.main.transform.position = new Vector3(0f,0f,-10f);
 	    }
 	    if(c.tag == "PowerUp")
 	    {
