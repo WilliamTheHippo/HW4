@@ -287,6 +287,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Debuff Patch
       objectReference: {fileID: 0}
+    - target: {fileID: 6885148841943318203, guid: 65174c10241324232affd1c0354724c4,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65174c10241324232affd1c0354724c4, type: 3}
 --- !u!1001 &44359208
@@ -1045,6 +1050,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8194379200524874896, guid: fa4f734e1352e418b88f6f53d2f838fe,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa4f734e1352e418b88f6f53d2f838fe, type: 3}
@@ -2978,6 +2988,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Debuff+Bouncy Patch
       objectReference: {fileID: 0}
+    - target: {fileID: 4926212551372586354, guid: 340c07d8ddb4a4b76ab8c9ddcb54fec7,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 340c07d8ddb4a4b76ab8c9ddcb54fec7, type: 3}
 --- !u!1 &1629823992
@@ -3086,7 +3101,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1645972343}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 47.3, y: 6.6, z: 0}
+  m_LocalPosition: {x: 47.1, y: 6.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1022215400}
