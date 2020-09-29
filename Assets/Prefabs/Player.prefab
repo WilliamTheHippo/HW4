@@ -242,6 +242,7 @@ MonoBehaviour:
   beep: {fileID: 8300000, guid: 56205e2f1cce240f2b29160a3b6a46c6, type: 3}
   boing: {fileID: 8300000, guid: b7fc55ca311dd42579ec8c84143ad5a4, type: 3}
   ping: {fileID: 8300000, guid: a2f5376988800457f9a0c939286593d8, type: 3}
+  blip: {fileID: 8300000, guid: a16fef9ed3a834fdeb757ebbf2e63b2c, type: 3}
   defaultSprite: {fileID: 21300000, guid: 1935c6281508e498fa32f2a5505c9bf0, type: 3}
   poweredUpSprite: {fileID: 21300000, guid: 3c63aba46d30042dea05cbd1a2de9a63, type: 3}
 --- !u!1 &6546076811619152065

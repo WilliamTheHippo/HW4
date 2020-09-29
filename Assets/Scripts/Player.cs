@@ -23,6 +23,8 @@ public class Player : MonoBehaviour
 	public AudioClip boing;
 	[Tooltip("Plays on powerup")]
 	public AudioClip ping;
+	[Tooltip("Plays on jumpy thing")]
+	public AudioClip blip;
 
 	[Header("Sprites")]
 	public Sprite defaultSprite;
@@ -140,6 +142,12 @@ public class Player : MonoBehaviour
 	    	sound.Play();
 	    	transform.position = new Vector3(0f,0f,0f);
 	    	Camera.main.transform.position = new Vector3(0f,0f,-10f);
+	    }
+	    if(c.tag == "JumpyThing")
+	    {
+	    	Destroy(c.gameObject);
+	    	sound.clip = blip;
+	    	sound.Play();
 	    }
 	    if(c.tag == "PowerUp")
 	    {
