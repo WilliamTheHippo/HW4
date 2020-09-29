@@ -19,4 +19,14 @@ public class MoveCamera : MonoBehaviour
     		Camera.main.transform.position += move * Time.deltaTime * moveSpeed;
     	}
     }
+
+    void OnTriggerExit2D(Collider2D c)
+    {
+        if(c.tag == "Player" &&
+            (Camera.main.transform.position.y - c.transform.position.y > 10 || 
+            Camera.main.transform.position.x - c.transform.position.x > 5))
+        {
+            Camera.main.transform.position = c.transform.position + new Vector3(0f,0f,-10f);
+        }
+    }
 }
